@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bestellapp</title>
+    <link rel="icon" type="image/png" href="./assets/icons/favicon-cyber.png" />
 
     <link rel="stylesheet" href="./css/base.css" />
     <link rel="stylesheet" href="./css/molecules/buttons.css" />
@@ -11,11 +12,40 @@
     <link rel="stylesheet" href="./css/molecules/impressum.css" />
     <link rel="stylesheet" href="./css/molecules/orderbar.css" />
     <link rel="stylesheet" href="./css/molecules/assets.css" />
-    <link rel="stylesheet" href=".css/molecules/style.css" />
+    <link rel="stylesheet" href="./css/molecules/fonts.css" />
+    <link rel="stylesheet" href="./css/molecules/style.css" />
+
     <script src="./js/db.js"></script>
     <script src="./js/script.js"></script>
   </head>
   <body>
-    <h1>Bestellapp</h1>
+    <header class="page_header">
+      <div class="page_header_bar">
+        <a class="page_header_brand" href="index.html" aria-label="BestellApp Startseite">
+          <span>BestellApp</span>
+          <small>Cyberspace</small>
+        </a>
+
+        <input class="page_header_toggle" id="page_header_toggle" type="checkbox" />
+        <label class="page_header_menu_button" for="page_header_toggle" aria-label="Navigation oeffnen">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+
+        <nav class="page_header_nav" aria-label="Hauptnavigation">
+          <label class="page_header_close" for="page_header_toggle" aria-label="Navigation schliessen">x</label>
+          <div class="page_header_links">
+            <a href="index.html">Start</a>
+            <a href="#implantat">Implantate</a>
+            <a href="#favorites">Favoriten</a>
+            <a href="#contact">Kontakt</a>
+          </div>
+        </nav>
+      </div>
+
+      <section class="page_header_hero" aria-label="Cyberpunk Produktwelt"></section>
+    </header>
   </body>
 </html>
+

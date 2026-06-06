@@ -1,0 +1,173 @@
+﻿.page_header {
+  background: #020b12;
+  border-bottom: 1px solid rgba(0, 234, 255, 0.22);
+  min-height: 360px;
+  position: relative;
+}
+
+.page_header_bar {
+  align-items: center;
+  background: rgba(2, 8, 14, 0.92);
+  border-bottom: 1px solid rgba(0, 234, 255, 0.16);
+  display: flex;
+  height: 88px;
+  justify-content: space-between;
+  padding: 0 32px;
+  overflow: hidden;
+  position: relative;
+  z-index: 3;
+}
+
+.page_header_brand {
+  color: #f6fbff;
+  display: flex;
+  flex-direction: column;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.page_header_brand span {
+  font-size: 30px;
+}
+
+.page_header_brand small {
+  color: #00eaff;
+  font-size: 14px;
+  letter-spacing: 6px;
+  margin-top: 8px;
+}
+
+.page_header_toggle {
+  display: none;
+}
+
+.page_header_menu_button {
+  cursor: pointer;
+  display: grid;
+  gap: 6px;
+  padding: 10px;
+}
+
+.page_header_menu_button span {
+  background: #00eaff;
+  box-shadow: 0 0 12px rgba(0, 234, 255, 0.8);
+  display: block;
+  height: 3px;
+  width: 30px;
+}
+
+.page_header_nav {
+  align-items: center;
+  background: rgba(2, 8, 14, 0.98);
+  border-left: 1px solid rgba(0, 234, 255, 0.25);
+  box-shadow: -16px 0 40px rgba(0, 0, 0, 0.45);
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  padding: 0 76px 0 28px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translateX(100%);
+  transition: transform 180ms ease;
+  width: min(640px, 100%);
+  z-index: 5;
+}
+
+.page_header_toggle:checked ~ .page_header_nav {
+  transform: translateX(0);
+}
+
+.page_header_close {
+  align-items: center;
+  color: #00eaff;
+  cursor: pointer;
+  display: flex;
+  font-size: 24px;
+  height: 100%;
+  justify-content: center;
+  line-height: 1;
+  position: absolute;
+  right: 26px;
+  top: 0;
+  width: 36px;
+}
+
+.page_header_links {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 28px;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.page_header_links a {
+  color: #f6fbff;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.page_header_links a:hover {
+  color: #00eaff;
+}
+
+.page_header_hero {
+  background-image: linear-gradient(
+      90deg,
+      rgba(2, 8, 14, 0.08),
+      rgba(2, 8, 14, 0.18)
+    ),
+    url('../../assets/images/cyber-header.png');
+  background-position: center;
+  background-size: cover;
+  min-height: 272px;
+}
+
+@media (max-width: 640px) {
+  .page_header {
+    min-height: 300px;
+  }
+
+  .page_header_bar {
+    height: 76px;
+    padding: 0 20px;
+  }
+
+  .page_header_brand span {
+    font-size: 24px;
+  }
+
+  .page_header_brand small {
+    font-size: 11px;
+    letter-spacing: 4px;
+  }
+
+  .page_header_nav {
+    padding: 0 58px 0 18px;
+    width: 100%;
+  }
+
+  .page_header_links {
+    gap: 16px;
+    justify-content: flex-start;
+    overflow-x: auto;
+  }
+
+  .page_header_links a {
+    font-size: 14px;
+  }
+
+  .page_header_close {
+    right: 16px;
+  }
+
+  .page_header_hero {
+    min-height: 224px;
+  }
+}
