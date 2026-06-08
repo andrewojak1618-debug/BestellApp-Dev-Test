@@ -1,32 +1,31 @@
 ﻿let myDishes = [
   {
-    name: 'Neuralink Gehirnchip (BCI)',
-    price: 12999.99,
-    description:
-      'Ein Chip, der deine kognitiven Faehigkeiten um das Dreifache verbessert.',
+    name: 'Cyberarm',
+    description: 'hochleistungsfähig bionischer arm',
+    price: 24900,
+    image: './assets/images/cyberarm.png',
+    quantity: 1,
   },
   {
-    name: 'Cyberarm Titan-X',
-    price: 8499.99,
-    description:
-      'Ein humanoider Roboterarm mit verstaerkter Griffkraft und praeziser Motorik.',
+    name: 'Wirbelsäulen-Booster',
+    description: 'neuronaler Booster für maximale Stabilität und Leistungssteigerung',
+    price: 18500,
+    image: './assets/images/wirbelsäulen-bosster.png',
+    quantity: 1,
   },
   {
-    name: 'Optische Retina MK-7',
-    price: 5799.99,
-    description:
-      'Ein kuenstliches Auge mit Nachtsicht, Zoomfunktion und digitaler Analyseanzeige.',
+    name: 'Synth-Lungen',
+    description: 'künstliche Lungen für extreme Ausdauer und Lungenschutz',
+    price: 16750,
+    image: './assets/images/synth-lungen.png',
+    quantity: 1,
   },
   {
-    name: 'Neon Spine Booster',
-    price: 9999.99,
-    description:
-      'Eine kybernetische Wirbelsaeulen-Erweiterung fuer bessere Reflexe und Stabilitaet.',
-  },
-  {
-    name: 'Synth-Lunge V2',
-    price: 4499.99,
-    description:
-      'Eine synthetische Lunge mit verbessertem Sauerstofffilter fuer toxische Stadtluft.',
+    name: 'Hyperlinks Beine',
+    description: 'verstärkte Beine mit integrierter Link-Technologie',
+    price: 22900,
+    image: './assets/images/hyperlinks-beine.png',
+    quantity: 1,
   },
 ];
+
