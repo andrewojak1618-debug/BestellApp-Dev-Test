@@ -1,9 +1,23 @@
 ﻿function renderProducts() {
+  renderAugmentationProducts();
+  renderEnhancementProducts();
+}
+
+function renderAugmentationProducts() {
   let productsContentRef = document.getElementById('products_content');
   productsContentRef.innerHTML = '';
 
   for (let index = 0; index < myDishes.length; index++) {
     productsContentRef.innerHTML += getProductTemplate(index);
+  }
+}
+
+function renderEnhancementProducts() {
+  let enhancementsContentRef = document.getElementById('enhancements_content');
+  enhancementsContentRef.innerHTML = '';
+
+  for (let index = 0; index < myDishes.length; index++) {
+    enhancementsContentRef.innerHTML += getProductWithoutImageTemplate(index);
   }
 }
 
@@ -33,3 +47,4 @@ function changeQuantity(index, changeValue) {
 // 3. Wenn größer als 5: auf 5 setzen
 // 4. Neue Stückzahl im Array speichern
 // 5. Produkte neu anzeigen
+

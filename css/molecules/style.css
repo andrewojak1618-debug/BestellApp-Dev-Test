@@ -1,4 +1,9 @@
-﻿.page_header {
+﻿* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.page_header {
   background: #020b12;
   border-bottom: 1px solid rgba(0, 234, 255, 0.22);
   min-height: 360px;
@@ -10,10 +15,13 @@
   background: rgba(2, 8, 14, 0.92);
   border-bottom: 1px solid rgba(0, 234, 255, 0.16);
   display: flex;
-  height: 88px;
+  height: 128px;
   justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1440px;
   padding: 0 32px;
   position: relative;
+  width: 100%;
   z-index: 3;
 }
 
@@ -61,23 +69,33 @@
 .page_header_nav {
   align-items: center;
   background: rgba(2, 8, 14, 0.98);
-  border-left: 1px solid rgba(0, 234, 255, 0.25);
+  border-left: 1px solid rgba(0, 234, 255, 0);
   box-shadow: -16px 0 40px rgba(0, 0, 0, 0.45);
   display: flex;
   height: 100%;
   justify-content: center;
-  padding: 0 76px 0 28px;
+  opacity: 0;
+  padding: 0;
+  pointer-events: none;
   position: absolute;
   right: 0;
   top: 0;
-  transform: translateX(100%);
-  transition: transform 180ms ease;
-  width: min(640px, 100%);
+  transition:
+    width 180ms ease,
+    opacity 140ms ease,
+    border-color 180ms ease;
+  visibility: hidden;
+  width: 0;
   z-index: 5;
 }
 
 .page_header_toggle:checked ~ .page_header_nav {
-  transform: translateX(0);
+  border-left-color: rgba(0, 234, 255, 0.25);
+  opacity: 1;
+  padding: 0 76px 0 28px;
+  pointer-events: auto;
+  visibility: visible;
+  width: min(640px, 100%);
 }
 
 .page_header_close {
@@ -122,7 +140,10 @@
     url('../../assets/images/cyber-header.png');
   background-position: center;
   background-size: cover;
-  min-height: 272px;
+  height: 508px;
+  margin: 0 auto;
+  max-width: 1440px;
+  width: 100%;
 }
 
 @media (max-width: 640px) {
@@ -144,7 +165,7 @@
     letter-spacing: 4px;
   }
 
-  .page_header_nav {
+  .page_header_toggle:checked ~ .page_header_nav {
     padding: 0 58px 0 18px;
     width: 100%;
   }
@@ -163,7 +184,7 @@
   }
 
   .page_header_hero {
-    min-height: 224px;
+    height: 224px;
   }
 }
 
@@ -175,6 +196,7 @@
 }
 
 .products_intro::before {
+  /* radial-gradient bedeutet: Die Farbe startet wie ein Kreis und läuft weich aus. */
   background: radial-gradient(
     circle at top left,
     rgba(6, 146, 240, 0.22),
@@ -183,37 +205,79 @@
   );
   content: '';
   height: 220px;
-  left: 0;
+  left: max(0px, calc((100% - 1440px) / 2));
   pointer-events: none;
   position: absolute;
   top: 0;
   width: 360px;
 }
 
-.products_intro_content {
-  max-width: 820px;
+.products_intro_head {
+  margin: 0 auto;
+  max-width: 1440px;
   position: relative;
   z-index: 1;
+}
+
+.products_intro_content {
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 1440px;
+  padding-left: 119px;
+  position: relative;
+  z-index: 1;
+}
+
+.products_intro_title_row {
+  align-items: center;
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  margin-bottom: 26px;
 }
 
 .products_intro h2 {
   color: #f6fbff;
   font-size: 34px;
   line-height: 1.1;
-  margin: 0 0 10px;
+  margin: 0;
 }
 
 .products_intro_rating {
-  color: #00d7e8;
-  font-size: 16px;
+  align-items: center;
+  background: rgba(0, 234, 255, 0.12);
+  border: 1px solid rgba(0, 234, 255, 0.2);
+  border-radius: 4px;
+  color: #f6fbff;
+  display: inline-flex;
+  gap: 5px;
+  line-height: 1;
+  margin: 0;
+  padding: 6px 8px;
+}
+
+.products_intro_rating_star {
+  color: #00eaff;
+  font-size: 15px;
+  text-shadow: 0 0 10px rgba(0, 234, 255, 0.72);
+}
+
+.products_intro_rating strong {
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.products_intro_rating small {
+  color: #8d9ca3;
+  font-size: 12px;
   font-weight: 700;
-  margin: 0 0 26px;
 }
 
 .products_intro_categories {
   align-items: center;
   display: flex;
   gap: 64px;
+  justify-content: center;
   margin-bottom: 34px;
 }
 
@@ -230,6 +294,7 @@
 
 .products_intro_category::before {
   background: #00eaff;
+  /*clip-path: polygon Schneide ein Element in eine bestimmte Form. */
   clip-path: polygon(0 0, 100% 50%, 0 100%, 22% 50%);
   content: '';
   height: 24px;
@@ -255,6 +320,8 @@
 
 .products_intro_banner {
   align-items: center;
+  margin: 0 auto;
+  max-width: 820px;
   background-image:
     linear-gradient(90deg, rgba(2, 8, 14, 0.28), rgba(2, 8, 14, 0.08)),
     url('../../assets/images/cybersmallbackground.png');
@@ -291,14 +358,14 @@
   }
 
   .products_intro_categories {
-    gap: 24px;
-    overflow-x: auto;
-    padding-left: 28px;
+    flex-wrap: wrap;
+    gap: 14px 24px;
+    padding-left: 0;
   }
 
   .products_intro_category {
     font-size: 16px;
-    white-space: nowrap;
+    white-space: normal;
   }
 
   .products_intro_banner {
@@ -313,18 +380,34 @@
   }
 }
 
-.augmentations {
-  margin-top: 32px;
-}
-
-.section_title_row {
+.section_title_bar {
   align-items: center;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 234, 255, 0.08),
+    rgba(111, 64, 255, 0.2) 50%,
+    rgba(0, 234, 255, 0.08)
+  );
+  box-shadow: 0 0 28px rgba(0, 234, 255, 0.1);
   display: flex;
-  gap: 18px;
-  margin-bottom: 20px;
+  height: 60px;
+  left: 50%;
+  margin: 34px 0 0;
+  max-width: 1920px;
+  position: relative;
+  transform: translateX(-50%);
+  width: 100vw;
 }
 
-.section_title_row h3 {
+.section_title_bar_inner {
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 1440px;
+  padding-left: 119px;
+  width: 100%;
+}
+
+.section_title_bar h3 {
   color: #00eaff;
   font-size: 26px;
   line-height: 1.1;
@@ -332,10 +415,10 @@
   text-shadow: 0 0 14px rgba(0, 234, 255, 0.5);
 }
 
-.section_title_row span {
-  background: rgba(0, 234, 255, 0.14);
-  flex: 1;
-  height: 2px;
+.augmentations,
+.enhancements {
+  margin-top: 28px;
+  max-width: 820px;
 }
 
 .product_item {
@@ -358,6 +441,10 @@
   height: auto;
   object-fit: cover;
   width: 220px;
+}
+
+.product_item_no_image {
+  grid-template-columns: 1fr 180px;
 }
 
 .product_item_info h3 {
@@ -523,3 +610,31 @@
     justify-self: end;
   }
 }
+
+.products_intro_avatar {
+  border: 3px solid rgba(0, 234, 255, 0.42);
+  border-radius: 50%;
+  box-shadow:
+    0 0 28px rgba(0, 234, 255, 0.34),
+    0 0 58px rgba(138, 58, 255, 0.22);
+  display: block;
+  height: 132px;
+  margin: -94px auto 18px;
+  object-fit: cover;
+  position: relative;
+  width: 132px;
+  z-index: 2;
+}
+
+.products_intro h2 {
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .products_intro_avatar {
+    height: 108px;
+    margin: -78px auto 16px;
+    width: 108px;
+  }
+}
+

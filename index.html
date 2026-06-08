@@ -49,9 +49,16 @@
     </header>
     <main>
       <section class="products_intro" aria-labelledby="products_intro_title">
-        <div class="products_intro_content">
-          <h2 id="products_intro_title">Cyberspace Produkte</h2>
-          <p class="products_intro_rating">Bewertung (4.8 von 5 Sternen)</p>
+        <section class="products_intro_head">
+          <img class="products_intro_avatar" src="./assets/images/cybergehirn.png" alt="Cyber Gehirn" />
+          <div class="products_intro_title_row">
+            <h2 id="products_intro_title">Cyberspace Produkte</h2>
+            <p class="products_intro_rating" aria-label="Bewertung 4,8 von 317 Bewertungen">
+              <span class="products_intro_rating_star" aria-hidden="true">★</span>
+              <strong>4,8</strong>
+              <small>(317)</small>
+            </p>
+          </div>
 
           <nav class="products_intro_categories" aria-label="Produktkategorien">
             <a class="products_intro_category" href="#augmentierungen">Augmentierungen</a>
@@ -65,19 +72,44 @@
               <span>Erweitere deine Grenzen.</span>
             </p>
           </div>
-          <section class="augmentations" id="augmentierungen" aria-labelledby="augmentations_title">
-            <div class="section_title_row">
-              <h3 id="augmentations_title">Augmentierungen</h3>
-              <span></span>
-            </div>
+        </section>
 
+        <section class="section_title_bar" aria-labelledby="augmentations_title">
+          <div class="section_title_bar_inner">
+            <h3 id="augmentations_title">Augmentierungen</h3>
+          </div>
+        </section>
+
+        <div class="products_intro_content">
+          <section class="augmentations" id="augmentierungen" aria-labelledby="augmentations_title">
             <div id="products_content"></div>
+          </section>
+        </div>
+
+        <section class="section_title_bar" aria-labelledby="enhancements_title">
+          <div class="section_title_bar_inner">
+            <h3 id="enhancements_title">Enhancements</h3>
+          </div>
+        </section>
+
+        <div class="products_intro_content">
+          <section class="enhancements" id="enhancements" aria-labelledby="enhancements_title">
+            <div id="enhancements_content"></div>
           </section>
         </div>
       </section>
     </main>
   </body>
 </html>
+
+
+
+
+
+
+
+
+
 
 
 

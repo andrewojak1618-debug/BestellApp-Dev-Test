@@ -21,6 +21,28 @@
   `;
 }
 
+function getProductWithoutImageTemplate(index) {
+  let dish = myDishes[index];
+
+  return `
+    <section class="product_item product_item_no_image" aria-labelledby="enhancement_product_${index}_title">
+      <div class="product_item_info">
+        <h3 id="enhancement_product_${index}_title">${dish.name}</h3>
+        <p>${dish.description}</p>
+        <strong>${formatPrice(dish.price)}</strong>
+      </div>
+      <div class="product_actions">
+        <div class="product_quantity" aria-label="Stückzahl ${dish.name}">
+          <button type="button" onclick="changeQuantity(${index}, -1)">-</button>
+          <span>${dish.quantity}x</span>
+          <button type="button" onclick="changeQuantity(${index}, 1)">+</button>
+        </div>
+        ${getDeleteButtonTemplate()}
+      </div>
+    </section>
+  `;
+}
+
 function formatPrice(price) {
   return price.toLocaleString('de-DE') + ' €';
 }
@@ -38,4 +60,5 @@ function getDeleteButtonTemplate() {
     </button>
   `;
 }
+
 
