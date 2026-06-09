@@ -1,6 +1,7 @@
 ﻿function renderProducts() {
   renderAugmentationProducts();
   renderEnhancementProducts();
+  renderImplantProducts();
 }
 
 function renderAugmentationProducts() {
@@ -16,8 +17,17 @@ function renderEnhancementProducts() {
   let enhancementsContentRef = document.getElementById('enhancements_content');
   enhancementsContentRef.innerHTML = '';
 
-  for (let index = 0; index < myDishes.length; index++) {
-    enhancementsContentRef.innerHTML += getProductWithoutImageTemplate(index);
+  for (let index = 0; index < enhancementDishes.length; index++) {
+    enhancementsContentRef.innerHTML += getEnhancementProductTemplate(index);
+  }
+}
+
+function renderImplantProducts() {
+  let implantsContentRef = document.getElementById('implants_content');
+  implantsContentRef.innerHTML = '';
+
+  for (let index = 0; index < implantDishes.length; index++) {
+    implantsContentRef.innerHTML += getImplantProductTemplate(index);
   }
 }
 
@@ -42,9 +52,28 @@ function changeQuantity(index, changeValue) {
   renderProducts();
 }
 
+function changeEnhancementQuantity(index, changeValue) {
+  let newQuantity = enhancementDishes[index].quantity + changeValue;
+
+  if (newQuantity < 1) {
+    newQuantity = 1;
+  }
+
+  if (newQuantity > 5) {
+    newQuantity = 5;
+  }
+
+  enhancementDishes[index].quantity = newQuantity;
+  renderProducts();
+}
+
 // 1. Neue Stückzahl berechnen
 // 2. Wenn kleiner als 1: auf 1 setzen
 // 3. Wenn größer als 5: auf 5 setzen
 // 4. Neue Stückzahl im Array speichern
 // 5. Produkte neu anzeigen
+
+
+
+
 

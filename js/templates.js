@@ -9,35 +9,37 @@
         <p>${dish.description}</p>
         <strong>${formatPrice(dish.price)}</strong>
       </div>
-      <div class="product_actions">
-        <div class="product_quantity" aria-label="Stückzahl ${dish.name}">
-          <button type="button" onclick="changeQuantity(${index}, -1)">-</button>
-          <span id="quantity_${index}">${dish.quantity}x</span>
-          <button type="button" onclick="changeQuantity(${index}, 1)">+</button>
-        </div>
-        ${getDeleteButtonTemplate()}
-      </div>
     </section>
   `;
 }
 
-function getProductWithoutImageTemplate(index) {
-  let dish = myDishes[index];
+function getEnhancementProductTemplate(index) {
+  let dish = enhancementDishes[index];
 
   return `
-    <section class="product_item product_item_no_image" aria-labelledby="enhancement_product_${index}_title">
+    <section class="product_item" aria-labelledby="enhancement_product_${index}_title">
+      <div class="product_image_wrapper">
+        <img class="product_image_clean" src="${dish.image}" alt="${dish.name}" />
+        <img class="product_image_info" src="${dish.infoImage}" alt="Detailansicht ${dish.name}" />
+      </div>
       <div class="product_item_info">
         <h3 id="enhancement_product_${index}_title">${dish.name}</h3>
         <p>${dish.description}</p>
         <strong>${formatPrice(dish.price)}</strong>
       </div>
-      <div class="product_actions">
-        <div class="product_quantity" aria-label="Stückzahl ${dish.name}">
-          <button type="button" onclick="changeQuantity(${index}, -1)">-</button>
-          <span>${dish.quantity}x</span>
-          <button type="button" onclick="changeQuantity(${index}, 1)">+</button>
-        </div>
-        ${getDeleteButtonTemplate()}
+    </section>
+  `;
+}
+
+function getImplantProductTemplate(index) {
+  let dish = implantDishes[index];
+
+  return `
+    <section class="product_item product_item_text_only" aria-labelledby="implant_product_${index}_title">
+      <div class="product_item_info">
+        <h3 id="implant_product_${index}_title">${dish.name}</h3>
+        <p>${dish.description}</p>
+        <strong>${formatPrice(dish.price)}</strong>
       </div>
     </section>
   `;
@@ -60,5 +62,9 @@ function getDeleteButtonTemplate() {
     </button>
   `;
 }
+
+
+
+
 
 
