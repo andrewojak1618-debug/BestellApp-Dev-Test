@@ -35,7 +35,8 @@ function getImplantProductTemplate(index) {
   let dish = implantDishes[index];
 
   return `
-    <section class="product_item product_item_text_only" aria-labelledby="implant_product_${index}_title">
+    <section class="product_item" aria-labelledby="implant_product_${index}_title">
+      <img src="${dish.image}" alt="${dish.name}" />
       <div class="product_item_info">
         <h3 id="implant_product_${index}_title">${dish.name}</h3>
         <p>${dish.description}</p>
@@ -62,6 +63,7 @@ function getDeleteButtonTemplate() {
     </button>
   `;
 }
+
 
 
 
