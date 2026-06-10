@@ -7,7 +7,10 @@
       <div class="product_item_info">
         <h3 id="product_${index}_title">${dish.name}</h3>
         <p>${dish.description}</p>
-        <strong>${formatPrice(dish.price)}</strong>
+        <div class="product_purchase">
+          <strong>${formatPrice(dish.price)}</strong>
+          <button class="product_add_button" type="button">Add to basket</button>
+        </div>
       </div>
     </section>
   `;
@@ -25,7 +28,10 @@ function getEnhancementProductTemplate(index) {
       <div class="product_item_info">
         <h3 id="enhancement_product_${index}_title">${dish.name}</h3>
         <p>${dish.description}</p>
-        <strong>${formatPrice(dish.price)}</strong>
+        <div class="product_purchase">
+          <strong>${formatPrice(dish.price)}</strong>
+          <button class="product_add_button" type="button">Add to basket</button>
+        </div>
       </div>
     </section>
   `;
@@ -40,7 +46,10 @@ function getImplantProductTemplate(index) {
       <div class="product_item_info">
         <h3 id="implant_product_${index}_title">${dish.name}</h3>
         <p>${dish.description}</p>
-        <strong>${formatPrice(dish.price)}</strong>
+        <div class="product_purchase">
+          <strong>${formatPrice(dish.price)}</strong>
+          <button class="product_add_button" type="button">Add to basket</button>
+        </div>
       </div>
     </section>
   `;
@@ -63,6 +72,7 @@ function getDeleteButtonTemplate() {
     </button>
   `;
 }
+
 
 
 
