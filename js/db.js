@@ -29,6 +29,7 @@
     quantity: 1,
   },
 ];
+
 let enhancementDishes = [
   {
     name: 'Genboost Regenerator',
@@ -74,6 +75,7 @@ let enhancementDishes = [
     quantity: 1,
   },
 ];
+
 let implantDishes = [
   {
     name: 'EchoSense V3',

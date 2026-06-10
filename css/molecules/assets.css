@@ -1,0 +1,116 @@
+﻿/* Page background images */
+.page_header_hero {
+  background-image:
+    linear-gradient(90deg, rgba(2, 8, 14, 0.08), rgba(2, 8, 14, 0.18)),
+    url('../../assets/images/cyber-header.png');
+  background-position: center;
+  background-size: cover;
+}
+
+.products_intro_banner {
+  background-image:
+    linear-gradient(90deg, rgba(2, 8, 14, 0.28), rgba(2, 8, 14, 0.08)),
+    url('../../assets/images/cybersmallbackground.png');
+  background-position: center;
+  background-size: cover;
+}
+
+/* Product images */
+.product_item img {
+  border: 1px solid rgba(138, 58, 255, 0.52);
+  border-radius: 12px;
+  display: block;
+  height: 121px;
+  object-fit: cover;
+  width: 207px;
+}
+
+.product_image_wrapper {
+  cursor: zoom-in;
+  height: 121px;
+  position: relative;
+  width: 207px;
+  z-index: 2;
+}
+
+.product_image_clean,
+.product_image_info {
+  border: 1px solid rgba(138, 58, 255, 0.52);
+  border-radius: 12px;
+  display: block;
+  height: 121px;
+  object-fit: cover;
+  width: 207px;
+}
+
+.product_image_info {
+  box-shadow:
+    0 0 24px rgba(0, 234, 255, 0.28),
+    0 0 44px rgba(111, 64, 255, 0.24);
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  transform: scale(0.96);
+  transform-origin: left center;
+  transition:
+    height 180ms ease,
+    opacity 180ms ease,
+    transform 180ms ease,
+    width 180ms ease;
+  z-index: 8;
+}
+
+/* Image overlay zoom: https://www.w3schools.com/howto/howto_css_image_overlay_zoom.asp */
+@media (hover: hover) and (pointer: fine) {
+  .enhancements .product_item:has(.product_image_wrapper:hover),
+  .enhancements .product_item:has(.product_image_wrapper:focus-within) {
+    z-index: 20;
+  }
+
+  .product_image_wrapper:hover .product_image_info,
+  .product_image_wrapper:focus-within .product_image_info {
+    height: 260px;
+    object-fit: contain;
+    opacity: 1;
+    transform: scale(1);
+    width: 420px;
+  }
+
+  .enhancements .product_item:last-child .product_image_info {
+    bottom: 0;
+    top: auto;
+    transform-origin: left bottom;
+  }
+}
+
+/* Intro avatar */
+.products_intro_avatar {
+  border: 3px solid rgba(0, 234, 255, 0.42);
+  border-radius: 50%;
+  box-shadow:
+    0 0 28px rgba(0, 234, 255, 0.34),
+    0 0 58px rgba(138, 58, 255, 0.22);
+  display: block;
+  height: 132px;
+  margin: -94px auto 18px;
+  object-fit: cover;
+  position: relative;
+  width: 132px;
+  z-index: 2;
+}
+
+@media (max-width: 760px) {
+  .product_item img {
+    width: 118px;
+  }
+}
+
+@media (max-width: 640px) {
+  .products_intro_avatar {
+    height: 108px;
+    margin: -78px auto 16px;
+    width: 108px;
+  }
+}
