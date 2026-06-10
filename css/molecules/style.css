@@ -104,7 +104,7 @@
 .products_intro {
   background: #020b12;
   border-bottom: 1px solid rgba(0, 234, 255, 0.14);
-  padding: 28px 32px 34px;
+  padding: 28px 32px 32px;
   position: relative;
 }
 
@@ -234,9 +234,10 @@
 .augmentations,
 .enhancements,
 .implants {
-  margin-top: 28px;
+  margin-top: 16px;
   max-width: 820px;
 }
+
 
 #products_content,
 #enhancements_content,
@@ -295,5 +296,7 @@
     grid-template-columns: 1fr;
   }
 }
+
+
 
 

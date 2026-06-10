@@ -185,3 +185,20 @@ body {
     letter-spacing: 3px;
   }
 }
+
+.page_footer_content p,
+.page_footer_links a {
+  color: #d8e3e7;
+  font-size: 15px;
+  margin: 0;
+}
+
+.page_footer_links a {
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.page_footer_links a:hover,
+.page_footer_links a:focus-visible {
+  color: #00eaff;
+}
