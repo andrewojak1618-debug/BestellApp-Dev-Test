@@ -118,38 +118,9 @@
               <div class="basket_content">
                 <h2 id="basket_title">Warenkorb</h2>
 
-              <div class="basket_items">
-                <article class="basket_item">
-                  <h3>Cyberarm</h3>
-                  <div class="basket_item_details">
-                    <span>1 Stück</span>
-                    <strong>24.900,00 €</strong>
-                  </div>
-                </article>
+              <div class="basket_items"></div>
 
-                <article class="basket_item">
-                  <h3>Wirbelsäulen-Booster</h3>
-                  <div class="basket_item_details">
-                    <span>1 Stück</span>
-                    <strong>18.500,00 €</strong>
-                  </div>
-                </article>
-
-                <article class="basket_item">
-                  <h3>Synth-Lungen</h3>
-                  <div class="basket_item_details">
-                    <span>1 Stück</span>
-                    <strong>16.750,00 €</strong>
-                  </div>
-                </article>
-              </div>
-
-              <div class="basket_summary">
-                <p><span>Zwischensumme</span><strong>60.150,00 €</strong></p>
-                <p><span>Lieferkosten</span><strong>5,90 €</strong></p>
-                <p class="basket_total"><span>Gesamt</span><strong>60.155,90 €</strong></p>
-              </div>
-
+              <div class="basket_summary"></div>
                 <button class="basket_checkout_button" type="button">Zur Kasse</button>
               </div>
             </section>
@@ -167,11 +138,19 @@
         </nav>
       </div>
     </footer>
+    <section class="mobile_basket" aria-labelledby="mobile_basket_title" hidden>
+      <div class="mobile_basket_header">
+        <h2 id="mobile_basket_title">Warenkorb</h2>
+        <button class="mobile_basket_close" type="button" onclick="closeMobileBasket()" aria-label="Warenkorb schließen">×</button>
+      </div>
+      <div class="mobile_basket_content"></div>
+    </section>
+
     <nav class="mobile_bottom_nav" aria-label="Mobile Navigation">
       <a href="#">Start</a>
       <a href="#products_intro_title">Produkte</a>
       <a href="#implantate">Implantate</a>
-      <button type="button">Warenkorb</button>
+      <button class="mobile_basket_button" type="button" onclick="openMobileBasket()">Warenkorb</button>
     </nav>
   </body>
 </html>

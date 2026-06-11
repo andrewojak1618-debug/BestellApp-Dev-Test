@@ -56,8 +56,10 @@
 .basket_items {
   display: grid;
   gap: 10px;
-  grid-template-rows: repeat(3, 1fr);
-  height: 355px;
+  align-content: start;
+  grid-auto-rows: minmax(103px, auto);
+  max-height: 355px;
+  overflow-y: auto;
   width: 340px;
 }
 
@@ -65,7 +67,7 @@
   background: rgba(0, 234, 255, 0.06);
   border: 1px solid rgba(0, 234, 255, 0.12);
   border-radius: 20px;
-  height: 100%;
+  min-height: 103px;
   padding: 14px;
   width: 340px;
 }
@@ -166,3 +168,19 @@
 
 
 
+
+.basket_empty {
+  align-self: center;
+  margin: auto;
+  text-align: center;
+}
+
+.basket_item_details {
+  gap: 10px;
+}
+
+.basket_item_details .product_delete_button {
+  flex-shrink: 0;
+  height: 42px;
+  width: 42px;
+}

@@ -5,6 +5,7 @@
     price: 24900,
     image: './assets/images/cyberarm.png',
     quantity: 1,
+    inBasket: false,
   },
   {
     name: 'Wirbelsäulen-Booster',

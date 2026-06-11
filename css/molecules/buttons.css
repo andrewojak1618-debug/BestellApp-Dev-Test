@@ -1,4 +1,4 @@
-﻿/* Header controls */
+/* Header controls */
 /* Header Steuerung */
 .page_header_toggle {
   display: none;
@@ -73,6 +73,34 @@
   text-align: center;
 }
 
+.product_quantity_compact {
+  border: 0;
+  grid-template-columns: 32px 36px 32px;
+  height: 32px;
+  min-width: 100px;
+}
+
+.product_quantity_compact button {
+  font-size: 20px;
+}
+.product_quantity_compact .product_delete_button,
+.product_quantity_compact .product_delete_button:hover {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  height: 32px;
+  width: 32px;
+}
+
+.product_quantity_compact .product_delete_button::before {
+  display: none;
+}
+
+.product_quantity_compact .product_delete_button:hover .bin_bottom,
+.product_quantity_compact .product_delete_button:hover .bin_top {
+  transform: none;
+  width: 12px;
+}
 .product_actions {
   align-items: flex-end;
   display: flex;
@@ -92,7 +120,6 @@
     min-width: 154px;
   }
 }
-
 /* Delete button: https://uiverse.io/vinodjangid07/clever-bat-72 */
 /* löschbutton  */
 .product_delete_button {
@@ -215,4 +242,27 @@
   background: #00eaff;
   box-shadow: 0 0 16px rgba(0, 234, 255, 0.32);
   color: #020b12;
+}
+
+.mobile_basket_checkout_button {
+  background: #00eaff;
+  border: 0;
+  border-radius: 999px;
+  color: #07111a;
+  cursor: pointer;
+  display: block;
+  font-size: 16px;
+  font-weight: 800;
+  margin: 18px auto 0;
+  min-height: 48px;
+  padding: 10px 22px;
+  transition:
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.mobile_basket_checkout_button:hover,
+.mobile_basket_checkout_button:focus-visible {
+  box-shadow: 0 0 24px rgba(0, 234, 255, 0.4);
+  transform: translateY(-1px);
 }
