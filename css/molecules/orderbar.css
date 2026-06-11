@@ -107,7 +107,31 @@
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1280px) {
+  .shop_layout {
+    grid-template-columns: 1fr;
+  }
+
+  .shop_products .products_intro_content {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding-left: 0;
+    width: 100%;
+  }
+
+  .shop_products .augmentations,
+  .shop_products .enhancements,
+  .shop_products .implants {
+    margin-inline: auto;
+    width: 713px;
+  }
+
+  .basket_wrapper {
+    display: none;
+  }
+}
+@media (max-width: 912px) {
   .shop_layout {
     width: calc(100% + 32px);
   }
@@ -124,6 +148,7 @@
   }
 
   .basket_wrapper {
+    display: none;
     padding-inline: 0;
   }
 
@@ -160,15 +185,7 @@
     left: -20px;
     width: calc(100% + 40px);
   }
-
-  .basket_wrapper {
-    display: none;
-  }
 }
-
-
-
-
 
 .basket_empty {
   align-self: center;

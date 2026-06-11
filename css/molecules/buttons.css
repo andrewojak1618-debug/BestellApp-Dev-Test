@@ -34,7 +34,7 @@
   width: 36px;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .page_header_menu_button,
   .page_header_close {
     display: none;

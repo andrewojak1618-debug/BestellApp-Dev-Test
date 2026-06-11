@@ -1,4 +1,4 @@
-﻿/* Page background images */
+/* Page background images */
 .page_header_hero {
   background-image:
     linear-gradient(90deg, rgba(2, 8, 14, 0.08), rgba(2, 8, 14, 0.18)),
@@ -101,7 +101,7 @@
   z-index: 2;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 912px) {
   .product_item > img,
   .product_image_wrapper {
     height: 86px;
@@ -120,7 +120,7 @@
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 912px) {
   .enhancements .product_image_wrapper {
     cursor: default;
     flex: 0 0 86px;
@@ -146,6 +146,15 @@
   }
 }
 @media (max-width: 640px) {
+  .product_item > img,
+  .product_image_wrapper,
+  .product_image_clean,
+  .enhancements .product_image_wrapper,
+  .enhancements .product_image_clean {
+    max-width: 100%;
+    width: 100%;
+  }
+
   .products_intro_avatar {
     height: 108px;
     margin: -78px auto 16px;
