@@ -1,6 +1,7 @@
 # BestellApp - CyberSpace
 
-Eine responsive Bestellapp für fiktive Cyberware-Produkte. Das Projekt wurde mit HTML, CSS und Vanilla JavaScript umgesetzt und dient als Lernprojekt für dynamisches Rendering, Warenkorb-Logik und responsive Benutzeroberflächen.
+Eine responsive Bestellapp für fiktive Cyberware-Produkte.
+Das Projekt wurde mit HTML, CSS und JavaScript umgesetzt und dient als Lernprojekt für dynamisches Rendering, Warenkorb-Logik und responsive Benutzeroberflächen.
 
 ## Funktionen
 
@@ -31,6 +32,7 @@ bestellapp -teststruktur/
 |   |-- gifs-icon/
 |   |-- icons/
 |   `-- images/
+|-- components/
 |-- css/
 |   |-- base.css
 |   `-- molecules/
@@ -38,6 +40,7 @@ bestellapp -teststruktur/
 |       |-- buttons.css
 |       |-- fonts.css
 |       |-- footer.css
+|       |-- impressum.css
 |       |-- orderbar.css
 |       `-- style.css
 |-- js/
@@ -50,7 +53,8 @@ bestellapp -teststruktur/
 
 ## Projekt starten
 
-Da das Projekt keine Installation benötigt, kann `index.html` direkt im Browser geöffnet werden. Empfohlen wird ein lokaler Entwicklungsserver, zum Beispiel die Erweiterung **Live Server** in Visual Studio Code.
+Da das Projekt keine Installation benötigt, kann `index.html` direkt im Browser geöffnet werden.
+Empfohlen wird ein lokaler Entwicklungsserver, zum Beispiel die Erweiterung **Live Server** in Visual Studio Code.
 
 Alternativ kann im Projektordner ein einfacher Server gestartet werden:
 
