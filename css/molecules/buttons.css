@@ -101,17 +101,9 @@
   transform: none;
   width: 12px;
 }
-.product_actions {
-  align-items: flex-end;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  justify-self: end;
-}
 
 @media (max-width: 760px) {
-  .product_quantity,
-  .product_actions {
+  .product_quantity {
     grid-column: 1 / -1;
     justify-self: end;
   }

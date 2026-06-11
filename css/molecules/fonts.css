@@ -92,8 +92,7 @@ body {
     text-shadow 160ms ease;
 }
 
-.products_intro_category:hover,
-.products_intro_category.active {
+.products_intro_category:hover {
   color: #00eaff;
   text-shadow: 0 0 16px rgba(0, 234, 255, 0.72);
 }

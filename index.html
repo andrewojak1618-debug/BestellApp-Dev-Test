@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="./css/base.css" />
     <link rel="stylesheet" href="./css/molecules/buttons.css" />
     <link rel="stylesheet" href="./css/molecules/footer.css" />
-    <link rel="stylesheet" href="./css/molecules/impressum.css" />
     <link rel="stylesheet" href="./css/molecules/orderbar.css" />
     <link rel="stylesheet" href="./css/molecules/assets.css" />
     <link rel="stylesheet" href="./css/molecules/fonts.css" />
@@ -23,20 +22,37 @@
     <header class="page_header">
       <div class="page_header_bar">
         <div class="page_header_bar_inner">
-          <a class="page_header_brand" href="index.html" aria-label="BestellApp Startseite">
+          <a
+            class="page_header_brand"
+            href="index.html"
+            aria-label="BestellApp Startseite"
+          >
             <span>BestellApp</span>
             <small>Cyberspace</small>
           </a>
 
-          <input class="page_header_toggle" id="page_header_toggle" type="checkbox" />
-          <label class="page_header_menu_button" for="page_header_toggle" aria-label="Navigation öffnen">
+          <input
+            class="page_header_toggle"
+            id="page_header_toggle"
+            type="checkbox"
+          />
+          <label
+            class="page_header_menu_button"
+            for="page_header_toggle"
+            aria-label="Navigation öffnen"
+          >
             <span></span>
             <span></span>
             <span></span>
           </label>
 
           <nav class="page_header_nav" aria-label="Hauptnavigation">
-            <label class="page_header_close" for="page_header_toggle" aria-label="Navigation schließen">x</label>
+            <label
+              class="page_header_close"
+              for="page_header_toggle"
+              aria-label="Navigation schließen"
+              >x</label
+            >
             <div class="page_header_links">
               <a href="index.html">Start</a>
               <a href="#implantat">Implantate</a>
@@ -46,24 +62,40 @@
           </nav>
         </div>
       </div>
-      <section class="page_header_hero" aria-label="Cyberpunk Produktwelt"></section>
+      <section
+        class="page_header_hero"
+        aria-label="Cyberpunk Produktwelt"
+      ></section>
     </header>
     <main>
       <section class="products_intro" aria-labelledby="products_intro_title">
         <section class="products_intro_head">
-          <img class="products_intro_avatar" src="./assets/images/cybergehirn.png" alt="Cyber Gehirn" />
+          <img
+            class="products_intro_avatar"
+            src="./assets/images/cybergehirn.png"
+            alt="Cyber Gehirn"
+          />
           <div class="products_intro_title_row">
             <h2 id="products_intro_title">Cyberspace Produkte</h2>
-            <p class="products_intro_rating" aria-label="Bewertung 4,8 von 317 Bewertungen">
-              <span class="products_intro_rating_star" aria-hidden="true">★</span>
+            <p
+              class="products_intro_rating"
+              aria-label="Bewertung 4,8 von 317 Bewertungen"
+            >
+              <span class="products_intro_rating_star" aria-hidden="true"
+                >★</span
+              >
               <strong>4,8</strong>
               <small>(317)</small>
             </p>
           </div>
 
           <nav class="products_intro_categories" aria-label="Produktkategorien">
-            <a class="products_intro_category" href="#augmentierungen">Augmentierungen</a>
-            <a class="products_intro_category" href="#enhancements">Enhancements</a>
+            <a class="products_intro_category" href="#augmentierungen"
+              >Augmentierungen</a
+            >
+            <a class="products_intro_category" href="#enhancements"
+              >Enhancements</a
+            >
             <a class="products_intro_category" href="#implantate">Implantate</a>
           </nav>
 
@@ -75,7 +107,10 @@
           </div>
         </section>
 
-        <section class="section_title_bar" aria-labelledby="augmentations_title">
+        <section
+          class="section_title_bar"
+          aria-labelledby="augmentations_title"
+        >
           <div class="section_title_bar_inner">
             <h3 id="augmentations_title">Augmentierungen</h3>
           </div>
@@ -84,19 +119,30 @@
         <div class="shop_layout">
           <div class="shop_products">
             <div class="products_intro_content">
-              <section class="augmentations" id="augmentierungen" aria-labelledby="augmentations_title">
+              <section
+                class="augmentations"
+                id="augmentierungen"
+                aria-labelledby="augmentations_title"
+              >
                 <div id="products_content"></div>
               </section>
             </div>
 
-            <section class="section_title_bar" aria-labelledby="enhancements_title">
+            <section
+              class="section_title_bar"
+              aria-labelledby="enhancements_title"
+            >
               <div class="section_title_bar_inner">
                 <h3 id="enhancements_title">Enhancements</h3>
               </div>
             </section>
 
             <div class="products_intro_content">
-              <section class="enhancements" id="enhancements" aria-labelledby="enhancements_title">
+              <section
+                class="enhancements"
+                id="enhancements"
+                aria-labelledby="enhancements_title"
+              >
                 <div id="enhancements_content"></div>
               </section>
             </div>
@@ -108,7 +154,11 @@
             </section>
 
             <div class="products_intro_content">
-              <section class="implants" id="implantate" aria-labelledby="implants_title">
+              <section
+                class="implants"
+                id="implantate"
+                aria-labelledby="implants_title"
+              >
                 <div id="implants_content"></div>
               </section>
             </div>
@@ -119,10 +169,16 @@
               <div class="basket_content">
                 <h2 id="basket_title">Warenkorb</h2>
 
-              <div class="basket_items"></div>
+                <div class="basket_items"></div>
 
-              <div class="basket_summary"></div>
-                <button class="basket_checkout_button" type="button" onclick="completeOrder()">Kaufen</button>
+                <div class="basket_summary"></div>
+                <button
+                  class="basket_checkout_button"
+                  type="button"
+                  onclick="completeOrder()"
+                >
+                  Kaufen
+                </button>
               </div>
             </section>
           </aside>
@@ -142,12 +198,23 @@
     <section class="mobile_basket" aria-labelledby="mobile_basket_title" hidden>
       <div class="mobile_basket_header">
         <h2 id="mobile_basket_title">Warenkorb</h2>
-        <button class="mobile_basket_close" type="button" onclick="closeMobileBasket()" aria-label="Warenkorb schließen">×</button>
+        <button
+          class="mobile_basket_close"
+          type="button"
+          onclick="closeMobileBasket()"
+          aria-label="Warenkorb schließen"
+        >
+          ×
+        </button>
       </div>
       <div class="mobile_basket_content"></div>
     </section>
 
-    <div class="order_confirmation_overlay" onclick="closeOrderConfirmationFromOverlay(event)" hidden>
+    <div
+      class="order_confirmation_overlay"
+      onclick="closeOrderConfirmationFromOverlay(event)"
+      hidden
+    >
       <section
         class="order_confirmation"
         role="dialog"
@@ -155,8 +222,19 @@
         aria-labelledby="order_confirmation_title"
         aria-describedby="order_confirmation_message"
       >
-        <button class="order_confirmation_close" type="button" onclick="closeOrderConfirmation()" aria-label="Bestätigung schließen">×</button>
-        <img class="order_confirmation_image" src="./assets/gifs-icon/r2d2-roboter.gif" alt="Animierter R2D2-Roboter" />
+        <button
+          class="order_confirmation_close"
+          type="button"
+          onclick="closeOrderConfirmation()"
+          aria-label="Bestätigung schließen"
+        >
+          ×
+        </button>
+        <img
+          class="order_confirmation_image"
+          src="./assets/gifs-icon/r2d2-roboter.gif"
+          alt="Animierter R2D2-Roboter"
+        />
         <h4 id="order_confirmation_title">Order confirmed!</h4>
         <p id="order_confirmation_message">Your upgrade is on the way</p>
       </section>
@@ -165,38 +243,13 @@
       <a href="#">Start</a>
       <a href="#products_intro_title">Produkte</a>
       <a href="#implantate">Implantate</a>
-      <button class="mobile_basket_button" type="button" onclick="openMobileBasket()">Warenkorb</button>
+      <button
+        class="mobile_basket_button"
+        type="button"
+        onclick="openMobileBasket()"
+      >
+        Warenkorb
+      </button>
     </nav>
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
