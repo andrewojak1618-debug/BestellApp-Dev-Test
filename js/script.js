@@ -6,6 +6,7 @@ function renderProducts() {
   updateBasketCount();
   renderDesktopBasket();
   renderMobileBasket();
+  initOrderConfirmation();
 }
 
 function getProductGroup(productType) {
@@ -212,10 +213,70 @@ function renderMobileBasket() {
       <p><span>Lieferkosten</span><strong>${formatBasketPrice(totals.deliveryFee)}</strong></p>
       <p class="mobile_basket_total"><span>Gesamt</span><strong>${formatBasketPrice(totals.totalPrice)}</strong></p>
     </div>
-    <button class="mobile_basket_checkout_button" type="button">Jetzt kaufen (${formatBasketPrice(totals.totalPrice)})</button>
+    <button class="mobile_basket_checkout_button" type="button" onclick="completeOrder()">Kaufen (${formatBasketPrice(totals.totalPrice)})</button>
   `;
 }
 
+
+function completeOrder() {
+  if (getBasketItems().length === 0) {
+    return;
+  }
+
+  clearBasket();
+  closeMobileBasket();
+  renderProducts();
+  openOrderConfirmation();
+}
+
+function clearBasket() {
+  for (let productType of ['augmentation', 'enhancement', 'implant']) {
+    for (let dish of getProductGroup(productType)) {
+      dish.inBasket = false;
+      dish.quantity = 1;
+    }
+  }
+}
+
+function openOrderConfirmation() {
+  let overlay = document.querySelector('.order_confirmation_overlay');
+
+  if (!overlay) {
+    return;
+  }
+
+  overlay.hidden = false;
+  overlay.querySelector('.order_confirmation_close').focus();
+}
+
+function closeOrderConfirmation() {
+  let overlay = document.querySelector('.order_confirmation_overlay');
+
+  if (overlay) {
+    overlay.hidden = true;
+  }
+}
+
+function closeOrderConfirmationFromOverlay(event) {
+  if (event.target === event.currentTarget) {
+    closeOrderConfirmation();
+  }
+}
+
+function initOrderConfirmation() {
+  let overlay = document.querySelector('.order_confirmation_overlay');
+
+  if (!overlay || overlay.dataset.keyboardReady) {
+    return;
+  }
+
+  overlay.dataset.keyboardReady = 'true';
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !overlay.hidden) {
+      closeOrderConfirmation();
+    }
+  });
+}
 function initMobileBottomNav() {
   let mobileBottomNav = document.querySelector('.mobile_bottom_nav');
 

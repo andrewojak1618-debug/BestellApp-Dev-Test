@@ -1,8 +1,15 @@
-﻿* {
+* {
   box-sizing: border-box;
+}
+
+html {
+  background: #001b22;
+  overflow-x: clip;
 }
 
 body {
   background: #001b22;
-  margin: 0;
+  margin: 0 auto;
+  max-width: 1440px;
+  width: 100%;
 }

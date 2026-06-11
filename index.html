@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
@@ -22,29 +22,30 @@
   <body onload="renderProducts()">
     <header class="page_header">
       <div class="page_header_bar">
-        <a class="page_header_brand" href="index.html" aria-label="BestellApp Startseite">
-          <span>BestellApp</span>
-          <small>Cyberspace</small>
-        </a>
+        <div class="page_header_bar_inner">
+          <a class="page_header_brand" href="index.html" aria-label="BestellApp Startseite">
+            <span>BestellApp</span>
+            <small>Cyberspace</small>
+          </a>
 
-        <input class="page_header_toggle" id="page_header_toggle" type="checkbox" />
-        <label class="page_header_menu_button" for="page_header_toggle" aria-label="Navigation öffnen">
-          <span></span>
-          <span></span>
-          <span></span>
-        </label>
+          <input class="page_header_toggle" id="page_header_toggle" type="checkbox" />
+          <label class="page_header_menu_button" for="page_header_toggle" aria-label="Navigation öffnen">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
 
-        <nav class="page_header_nav" aria-label="Hauptnavigation">
-          <label class="page_header_close" for="page_header_toggle" aria-label="Navigation schließen">x</label>
-          <div class="page_header_links">
-            <a href="index.html">Start</a>
-            <a href="#implantat">Implantate</a>
-            <a href="#favorites">Favoriten</a>
-            <a href="#contact">Kontakt</a>
-          </div>
-        </nav>
+          <nav class="page_header_nav" aria-label="Hauptnavigation">
+            <label class="page_header_close" for="page_header_toggle" aria-label="Navigation schließen">x</label>
+            <div class="page_header_links">
+              <a href="index.html">Start</a>
+              <a href="#implantat">Implantate</a>
+              <a href="#favorites">Favoriten</a>
+              <a href="#contact">Kontakt</a>
+            </div>
+          </nav>
+        </div>
       </div>
-
       <section class="page_header_hero" aria-label="Cyberpunk Produktwelt"></section>
     </header>
     <main>
@@ -121,7 +122,7 @@
               <div class="basket_items"></div>
 
               <div class="basket_summary"></div>
-                <button class="basket_checkout_button" type="button">Zur Kasse</button>
+                <button class="basket_checkout_button" type="button" onclick="completeOrder()">Kaufen</button>
               </div>
             </section>
           </aside>
@@ -146,6 +147,20 @@
       <div class="mobile_basket_content"></div>
     </section>
 
+    <div class="order_confirmation_overlay" onclick="closeOrderConfirmationFromOverlay(event)" hidden>
+      <section
+        class="order_confirmation"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="order_confirmation_title"
+        aria-describedby="order_confirmation_message"
+      >
+        <button class="order_confirmation_close" type="button" onclick="closeOrderConfirmation()" aria-label="Bestätigung schließen">×</button>
+        <img class="order_confirmation_image" src="./assets/gifs-icon/r2d2-roboter.gif" alt="Animierter R2D2-Roboter" />
+        <h4 id="order_confirmation_title">Order confirmed!</h4>
+        <p id="order_confirmation_message">Your upgrade is on the way</p>
+      </section>
+    </div>
     <nav class="mobile_bottom_nav" aria-label="Mobile Navigation">
       <a href="#">Start</a>
       <a href="#products_intro_title">Produkte</a>
