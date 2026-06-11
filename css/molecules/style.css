@@ -89,6 +89,11 @@
     padding: 0 20px;
   }
 
+  .page_header_nav,
+  .page_header_toggle:checked ~ .page_header_nav {
+    display: none;
+  }
+
   .page_header_toggle:checked ~ .page_header_nav {
     padding: 0 58px 0 18px;
     width: 100%;
@@ -389,6 +394,3 @@
     text-align: center;
   }
 }
-
-
-

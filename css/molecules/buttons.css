@@ -1,4 +1,5 @@
 ﻿/* Header controls */
+/* Header Steuerung */
 .page_header_toggle {
   display: none;
 }
@@ -34,12 +35,14 @@
 }
 
 @media (max-width: 640px) {
+  .page_header_menu_button,
   .page_header_close {
-    right: 16px;
+    display: none;
   }
 }
 
 /* Product and basket quantity controls */
+/* Produkte und Warenkorb */
 .product_quantity {
   align-items: center;
   border: 1px solid rgba(0, 234, 255, 0.78);
@@ -91,6 +94,7 @@
 }
 
 /* Delete button: https://uiverse.io/vinodjangid07/clever-bat-72 */
+/* löschbutton  */
 .product_delete_button {
   align-items: center;
   background-color: rgb(20, 20, 20);
@@ -188,10 +192,8 @@
   color: #020b12;
 }
 
-
-
-
 /* Product add button */
+/* Produkte hinzufüge Button */
 .product_add_button {
   background: transparent;
   border: 1px solid rgba(0, 234, 255, 0.7);

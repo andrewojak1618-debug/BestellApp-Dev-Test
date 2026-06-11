@@ -2,7 +2,38 @@
   renderAugmentationProducts();
   renderEnhancementProducts();
   renderImplantProducts();
+  initMobileBottomNav();
 }
+
+function initMobileBottomNav() {
+  let mobileBottomNav = document.querySelector('.mobile_bottom_nav');
+
+  if (!mobileBottomNav || mobileBottomNav.dataset.scrollReady) {
+    return;
+  }
+
+  let lastScrollPosition = window.scrollY;
+  mobileBottomNav.dataset.scrollReady = 'true';
+
+  window.addEventListener(
+    'scroll',
+    () => {
+      let currentScrollPosition = window.scrollY;
+      let isScrollingUp = currentScrollPosition < lastScrollPosition;
+      let isAtPageBottom =
+        window.innerHeight + currentScrollPosition >=
+        document.documentElement.scrollHeight - 2;
+
+      mobileBottomNav.classList.toggle(
+        'mobile_bottom_nav_fixed',
+        isScrollingUp && !isAtPageBottom,
+      );
+      lastScrollPosition = currentScrollPosition;
+    },
+    { passive: true },
+  );
+}
+// How TO - Hide Menu on Scroll - https://www.w3schools.com/howto/howto_js_navbar_hide_scroll.asp
 
 function renderAugmentationProducts() {
   let productsContentRef = document.getElementById('products_content');
@@ -72,8 +103,3 @@ function changeEnhancementQuantity(index, changeValue) {
 // 3. Wenn größer als 5: auf 5 setzen
 // 4. Neue Stückzahl im Array speichern
 // 5. Produkte neu anzeigen
-
-
-
-
-
