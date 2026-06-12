@@ -72,8 +72,16 @@
         <section class="products_intro_head">
           <img
             class="products_intro_avatar"
-            src="./assets/images/cybergehirn.png"
+            src="./assets/images/cybergehirn.webp"
+            srcset="
+              ./assets/images/cybergehirn-132.webp 132w,
+              ./assets/images/cybergehirn.webp     264w
+            "
+            sizes="(max-width: 640px) 108px, 132px"
             alt="Cyber Gehirn"
+            width="132"
+            height="132"
+            decoding="async"
           />
           <div class="products_intro_title_row">
             <h2 id="products_intro_title">Cyberspace Produkte</h2>
@@ -197,7 +205,7 @@
     </footer>
     <section class="mobile_basket" aria-labelledby="mobile_basket_title" hidden>
       <div class="mobile_basket_header">
-        <h2 id="mobile_basket_title">Warenkorb</h2>
+        <h2 id="mobile_basket_title">Deine Bestellung</h2>
         <button
           class="mobile_basket_close"
           type="button"
@@ -232,23 +240,60 @@
         </button>
         <img
           class="order_confirmation_image"
-          src="./assets/gifs-icon/r2d2-roboter.gif"
+          src="./assets/gifs-icon/r2d2-roboter.webp"
           alt="Animierter R2D2-Roboter"
+          width="90"
+          height="81"
+          loading="lazy"
+          decoding="async"
         />
-        <h4 id="order_confirmation_title">Order confirmed!</h4>
-        <p id="order_confirmation_message">Your upgrade is on the way</p>
+        <h4 id="order_confirmation_title">Befehl bestätigt!</h4>
+        <p id="order_confirmation_message">Dein Upgrade ist unterwegs</p>
       </section>
     </div>
     <nav class="mobile_bottom_nav" aria-label="Mobile Navigation">
-      <a href="#">Start</a>
-      <a href="#products_intro_title">Produkte</a>
-      <a href="#implantate">Implantate</a>
+      <a href="#" aria-label="Start" title="Start">
+        <img
+          src="./assets/icons/house-black.svg"
+          alt=""
+          width="30"
+          height="30"
+          aria-hidden="true"
+        />
+      </a>
+      <a href="#products_intro_title" aria-label="Produkte" title="Produkte">
+        <img
+          src="./assets/icons/product-head.svg"
+          alt=""
+          width="30"
+          height="30"
+          aria-hidden="true"
+        />
+      </a>
+      <a href="#implantate" aria-label="Implantate" title="Implantate">
+        <img
+          src="./assets/icons/brain-implantat.svg"
+          alt=""
+          width="30"
+          height="30"
+          aria-hidden="true"
+        />
+      </a>
       <button
         class="mobile_basket_button"
         type="button"
         onclick="openMobileBasket()"
+        aria-label="Warenkorb"
+        title="Warenkorb"
       >
-        Warenkorb
+        <img
+          src="./assets/icons/shopping_cart_market.svg"
+          alt=""
+          width="30"
+          height="30"
+          aria-hidden="true"
+        />
+        <span class="mobile_basket_count" hidden>0</span>
       </button>
     </nav>
   </body>

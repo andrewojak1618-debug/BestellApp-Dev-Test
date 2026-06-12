@@ -1,6 +1,9 @@
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/grid-template-columns */
+/* Grid-Items manchmal wegen ihres Inhalts nicht richtig schrumpfen. minmax(0, 1fr) sagt klar, „Diese Spalte darf wirklich kleiner werden. */
+/* Grid-Items manchmal wegen ihres Inhalts nicht richtig schrumpfen. minmax(0, 1fr) sagt klar, „Diese Spalte darf wirklich kleiner werden. */
 .shop_layout {
   display: grid;
-  gap: 32px;
+  gap: 80px;
   grid-template-columns: minmax(0, 1fr) 435px;
   margin: 0 auto;
   max-width: 1440px;
@@ -18,16 +21,14 @@
 }
 
 .shop_products .section_title_bar {
-  left: calc(-32px - max(0px, (100vw - 1440px) / 2));
   max-width: none;
   transform: none;
-  width: 100vw;
+  width: 100%;
 }
 
 .basket_wrapper {
   align-self: stretch;
   justify-self: end;
-  padding-top: 16px;
   position: relative;
   width: 435px;
   z-index: 4;
@@ -40,8 +41,10 @@
   border-radius: 30px 0 0 30px;
   box-shadow: 0 0 30px rgba(0, 234, 255, 0.1);
   display: flex;
-  height: 794px;
+  height: auto;
   justify-content: center;
+  min-height: 654px;
+  padding: 50px 0;
   position: sticky;
   top: 16px;
   width: 435px;
@@ -50,8 +53,8 @@
 .basket_content {
   display: flex;
   flex-direction: column;
-  height: 676px;
-  width: 340px;
+  min-height: 494px;
+  width: 300px;
 }
 
 .basket_items {
@@ -59,9 +62,7 @@
   gap: 10px;
   align-content: start;
   grid-auto-rows: minmax(103px, auto);
-  max-height: 355px;
-  overflow-y: auto;
-  width: 340px;
+  width: 100%;
 }
 
 .basket_item {
@@ -70,12 +71,13 @@
   border-radius: 20px;
   min-height: 103px;
   padding: 14px;
-  width: 340px;
+  width: 260px;
 }
 
 .basket_item_details {
   align-items: center;
   display: flex;
+  gap: 10px;
   justify-content: space-between;
 }
 
@@ -83,7 +85,7 @@
   border-top: 1px solid rgba(0, 234, 255, 0.16);
   margin: 22px auto 0;
   padding-top: 18px;
-  width: 340px;
+  width: 280px;
 }
 
 @media (max-width: 1280px) {
@@ -123,9 +125,102 @@
   }
 
   .shop_products .section_title_bar {
-    left: -32px;
+    margin-left: -32px;
+    width: var(--viewport-width, 100vw);
   }
 }
+
+@media (min-width: 913px) {
+  .shop_layout {
+    gap: 80px;
+    grid-template-columns: minmax(0, 1fr) 435px;
+    width: calc(100% + 32px);
+  }
+
+  .shop_products .products_intro_content {
+    justify-content: flex-start;
+    margin: 0;
+    padding-left: 0;
+  }
+
+  .shop_products .augmentations,
+  .shop_products .enhancements,
+  .shop_products .implants {
+    margin-inline: 0;
+    max-width: none;
+    width: 100%;
+  }
+
+  .shop_products #products_content,
+  .shop_products #enhancements_content,
+  .shop_products #implants_content {
+    max-height: none;
+    width: 100%;
+  }
+
+  .shop_products .product_item,
+  .shop_products .enhancements .product_item {
+    align-items: center;
+    display: grid;
+    gap: clamp(16px, 3vw, 37px);
+    grid-template-columns: clamp(120px, 28%, 207px) minmax(0, 1fr);
+    height: auto;
+    min-height: 141px;
+    overflow: visible;
+    padding: 10px 0;
+    width: 100%;
+  }
+
+  .shop_products .product_item > img,
+  .shop_products .product_image_wrapper,
+  .shop_products .product_image_clean,
+  .shop_products .product_image_info,
+  .shop_products .enhancements .product_image_wrapper,
+  .shop_products .enhancements .product_image_clean {
+    height: 121px;
+    max-width: 207px;
+    width: 100%;
+  }
+
+  .shop_products .product_item_info {
+    height: auto;
+    min-width: 0;
+    padding-right: clamp(10px, 2vw, 24px);
+    width: auto;
+  }
+
+  .shop_products .product_item_info h3,
+  .shop_products .product_item_info p {
+    overflow-wrap: anywhere;
+  }
+
+  .shop_products .product_purchase {
+    gap: 12px;
+  }
+
+  .basket_wrapper {
+    display: block;
+  }
+
+  /* https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/min */
+  /* Erklärt, dass min() den kleineren Wert aus mehreren Angaben nimmt. */
+  /* calc() Erklärt Berechnungen direkt in CSS, z. B. 100% - 32px. */
+  /* Die Zeile sorgt also dafür, dass der Balken außen voll breit bleibt, während der Content innen begrenzt/zentriert bleibt. */
+  /* The line thus ensures that the bar remains fully wide on the outside, while the content on the inside remains limited/centered. */
+  .shop_products .section_title_bar {
+    margin-left: min(-32px, calc((1440px - var(--viewport-width, 100vw)) / 2));
+    width: var(--viewport-width, 100vw);
+  }
+
+  .products_intro > .section_title_bar .section_title_bar_inner,
+  .shop_products .section_title_bar_inner {
+    margin-left: max(32px, calc((100vw - 1440px) / 2));
+    margin-right: 0;
+    max-width: none;
+    width: min(calc(100% - 547px), 925px);
+  }
+}
+
 @media (max-width: 640px) {
   .shop_layout,
   .shop_products {
@@ -134,8 +229,8 @@
   }
 
   .shop_products .section_title_bar {
-    left: -20px;
-    width: calc(100% + 40px);
+    margin-left: -20px;
+    width: var(--viewport-width, 100vw);
   }
 }
 
@@ -143,10 +238,6 @@
   align-self: center;
   margin: auto;
   text-align: center;
-}
-
-.basket_item_details {
-  gap: 10px;
 }
 
 .basket_item_details .product_delete_button {

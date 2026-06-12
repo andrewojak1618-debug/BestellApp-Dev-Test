@@ -4,15 +4,10 @@
 
 html {
   background: #001b22;
-  overflow-x: hidden;
-  overflow-x: clip;
 }
 
 body {
   background: #001b22;
-  margin: 0 auto;
-  overflow-x: hidden;
-  overflow-x: clip;
-  max-width: 1440px;
+  margin: 0;
   width: 100%;
 }

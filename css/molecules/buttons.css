@@ -106,9 +106,6 @@
   .product_quantity {
     grid-column: 1 / -1;
     justify-self: end;
-  }
-
-  .product_quantity {
     min-width: 154px;
   }
 }
@@ -201,7 +198,7 @@
     background-color 160ms ease,
     color 160ms ease,
     box-shadow 160ms ease;
-  width: 100%;
+  width: 60%;
 }
 
 .basket_checkout_button:hover,

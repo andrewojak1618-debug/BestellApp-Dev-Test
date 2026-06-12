@@ -1,37 +1,44 @@
 function getProductTemplate(index) {
-  let dish = myDishes[index];
-  let purchaseControl = getProductPurchaseControl('augmentation', index, dish);
-
+  const dish = myDishes[index];
   return `
     <section class="product_item" aria-labelledby="product_${index}_title">
-      <img src="${dish.image}" alt="${dish.name}" />
-      <div class="product_item_info">
-        <h3 id="product_${index}_title">${dish.name}</h3>
-        <p>${dish.description}</p>
-        <div class="product_purchase">
-          <strong>${formatPrice(dish.price)}</strong>
-          ${purchaseControl}
-        </div>
-      </div>
+      <img src="${dish.image}" srcset="${getProductImageSrcset(dish.image)}" sizes="(max-width: 912px) 315px, 207px" alt="${dish.name}" width="207" height="121" loading="lazy" decoding="async" />
+      ${getProductInfoTemplate('product', 'augmentation', index, dish)}
     </section>
+  `;
+}
+
+function getProductInfoTemplate(idPrefix, productType, index, dish) {
+  return `
+    <div class="product_item_info">
+      <h3 id="${idPrefix}_${index}_title">${dish.name}</h3>
+      <p>${dish.description}</p>
+      <div class="product_purchase">
+        <strong>${formatPrice(dish.price)}</strong>
+        ${getProductPurchaseControl(productType, index, dish)}
+      </div>
+    </div>
   `;
 }
 
 function getProductPurchaseControl(productType, index, dish) {
   if (!dish.inBasket) {
-    return `
-      <button class="product_add_button" type="button" onclick="addProductToBasket('${productType}', ${index})">
-        Add to basket
-      </button>
-    `;
+    return getAddProductButtonTemplate(productType, index);
   }
-
   return `
     <div class="product_quantity product_quantity_compact" aria-label="${dish.name} Menge">
       ${getProductDecreaseControl(productType, index, dish)}
       <span>${dish.quantity}</span>
-      <button type="button" onclick="changeProductQuantity('${productType}', ${index}, 1)" aria-label="${dish.name} Menge erhöhen">+</button>
+      ${getQuantityButtonTemplate(productType, index, 1, dish.name)}
     </div>
+  `;
+}
+
+function getAddProductButtonTemplate(productType, index) {
+  return `
+    <button class="product_add_button" type="button" onclick="addProductToBasket('${productType}', ${index})">
+      Add to basket
+    </button>
   `;
 }
 
@@ -39,48 +46,40 @@ function getProductDecreaseControl(productType, index, dish) {
   if (dish.quantity === 1) {
     return getDeleteButtonTemplate(productType, index, dish.name);
   }
-
-  return `<button type="button" onclick="changeProductQuantity('${productType}', ${index}, -1)" aria-label="${dish.name} Menge verringern">−</button>`;
+  return getQuantityButtonTemplate(productType, index, -1, dish.name);
 }
-function getEnhancementProductTemplate(index) {
-  let dish = enhancementDishes[index];
-  let purchaseControl = getProductPurchaseControl('enhancement', index, dish);
 
+function getEnhancementProductTemplate(index) {
+  const dish = enhancementDishes[index];
   return `
     <section class="product_item" aria-labelledby="enhancement_product_${index}_title">
-      <div class="product_image_wrapper">
-        <img class="product_image_clean" src="${dish.image}" alt="${dish.name}" />
-        <img class="product_image_info" src="${dish.infoImage}" alt="Detailansicht ${dish.name}" />
-      </div>
-      <div class="product_item_info">
-        <h3 id="enhancement_product_${index}_title">${dish.name}</h3>
-        <p>${dish.description}</p>
-        <div class="product_purchase">
-          <strong>${formatPrice(dish.price)}</strong>
-          ${purchaseControl}
-        </div>
-      </div>
+      ${getEnhancementImagesTemplate(dish)}
+      ${getProductInfoTemplate('enhancement_product', 'enhancement', index, dish)}
     </section>
+  `;
+}
+
+function getEnhancementImagesTemplate(dish) {
+  return `
+    <div class="product_image_wrapper">
+      <img class="product_image_clean" src="${dish.image}" srcset="${getProductImageSrcset(dish.image)}" sizes="(max-width: 912px) 315px, 207px" alt="${dish.name}" width="207" height="121" loading="lazy" decoding="async" />
+      <img class="product_image_info" src="${dish.infoImage}" srcset="${getProductImageSrcset(dish.infoImage)}" sizes="(max-width: 912px) 315px, 420px" alt="Detailansicht ${dish.name}" width="420" height="260" loading="lazy" decoding="async" />
+    </div>
   `;
 }
 
 function getImplantProductTemplate(index) {
-  let dish = implantDishes[index];
-  let purchaseControl = getProductPurchaseControl('implant', index, dish);
-
+  const dish = implantDishes[index];
   return `
     <section class="product_item" aria-labelledby="implant_product_${index}_title">
-      <img src="${dish.image}" alt="${dish.name}" />
-      <div class="product_item_info">
-        <h3 id="implant_product_${index}_title">${dish.name}</h3>
-        <p>${dish.description}</p>
-        <div class="product_purchase">
-          <strong>${formatPrice(dish.price)}</strong>
-          ${purchaseControl}
-        </div>
-      </div>
+      <img src="${dish.image}" srcset="${getProductImageSrcset(dish.image)}" sizes="(max-width: 912px) 315px, 207px" alt="${dish.name}" width="207" height="121" loading="lazy" decoding="async" />
+      ${getProductInfoTemplate('implant_product', 'implant', index, dish)}
     </section>
   `;
+}
+
+function getProductImageSrcset(imagePath) {
+  return `${imagePath.replace('.webp', '-420.webp')} 420w, ${imagePath} 840w`;
 }
 
 function formatPrice(price) {
@@ -88,10 +87,116 @@ function formatPrice(price) {
 }
 
 function formatBasketPrice(price) {
-  return price.toLocaleString('de-DE', {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  }) + ' €';
+  return (
+    price.toLocaleString('de-DE', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    }) + ' €'
+  );
+}
+
+function getQuantityButtonTemplate(productType, index, change, productName) {
+  const symbol = change > 0 ? '+' : '−';
+  const action = change > 0 ? 'erhöhen' : 'verringern';
+  return `<button type="button" onclick="changeProductQuantity('${productType}', ${index}, ${change})" aria-label="${productName} Menge ${action}">${symbol}</button>`;
+}
+
+function getDesktopBasketItemTemplate(basketItem) {
+  const dish = basketItem.dish;
+  return `
+    <article class="basket_item">
+      <h3>${dish.name}</h3>
+      <div class="basket_item_details">
+        ${getBasketQuantityTemplate(basketItem)}
+        <strong>${formatBasketPrice(dish.price * dish.quantity)}</strong>
+        ${getDeleteButtonTemplate(basketItem.productType, basketItem.index, dish.name)}
+      </div>
+    </article>
+  `;
+}
+
+function getBasketQuantityTemplate(basketItem) {
+  const { dish, productType, index } = basketItem;
+  return `
+    <div class="product_quantity product_quantity_compact" aria-label="${dish.name} Menge im Warenkorb">
+      ${getQuantityButtonTemplate(productType, index, -1, dish.name)}
+      <span>${dish.quantity}</span>
+      ${getQuantityButtonTemplate(productType, index, 1, dish.name)}
+    </div>
+  `;
+}
+
+function getDesktopBasketSummary(totals) {
+  return `
+    ${getBasketSummaryRows(totals)}
+    <p class="basket_total"><span>Gesamt</span><strong>${formatBasketPrice(totals.totalPrice)}</strong></p>
+  `;
+}
+
+function getBasketSummaryRows(totals) {
+  return `
+    <p><span>Zwischensumme</span><strong>${formatBasketPrice(totals.subtotal)}</strong></p>
+    <p><span>Lieferkosten</span><strong>${formatBasketPrice(totals.deliveryFee)}</strong></p>
+  `;
+}
+
+function getEmptyDesktopBasketTemplate() {
+  return '<p class="basket_empty">Dein Warenkorb ist leer.</p>';
+}
+
+function getEmptyMobileBasketTemplate() {
+  return `
+    <div class="mobile_basket_empty">
+      <p>Hier ist noch nichts drin. Such dir ruhig dein Upgrade aus!</p>
+      <img
+        src="./assets/icons/screws-icon.svg"
+        alt=""
+        aria-hidden="true"
+      />
+    </div>`;
+}
+
+function getMobileBasketTemplate(basketItems, totals) {
+  return `
+    <div class="mobile_basket_items">${basketItems.map(getMobileBasketItemTemplate).join('')}</div>
+    <div class="mobile_basket_summary">
+      ${getBasketSummaryRows(totals)}
+      <p class="mobile_basket_total"><span>Gesamt</span><strong>${formatBasketPrice(totals.totalPrice)}</strong></p>
+    </div>
+    <button class="mobile_basket_checkout_button" type="button" onclick="completeOrder()">Kaufen (${formatBasketPrice(totals.totalPrice)})</button>
+  `;
+}
+
+function getMobileBasketItemTemplate(basketItem) {
+  const dish = basketItem.dish;
+  return `
+    <article class="mobile_basket_item">
+      <div class="mobile_basket_item_head"><h3>${dish.quantity} × ${dish.name}</h3></div>
+      <p>${formatBasketPrice(dish.price)} pro Stück</p>
+      <div class="mobile_basket_actions">
+        ${getMobileBasketQuantityTemplate(basketItem)}
+        <strong class="mobile_basket_item_price">${formatBasketPrice(dish.price * dish.quantity)}</strong>
+      </div>
+    </article>
+  `;
+}
+
+function getMobileBasketQuantityTemplate(basketItem) {
+  const dish = basketItem.dish;
+  return `
+    <div class="product_quantity product_quantity_compact" aria-label="${dish.name} Menge im Warenkorb">
+      ${getMobileBasketDecreaseControl(basketItem)}
+      <span>${dish.quantity}</span>
+      ${getQuantityButtonTemplate(basketItem.productType, basketItem.index, 1, dish.name)}
+    </div>
+  `;
+}
+
+function getMobileBasketDecreaseControl(basketItem) {
+  const { dish, productType, index } = basketItem;
+  return dish.quantity === 1
+    ? getDeleteButtonTemplate(productType, index, dish.name)
+    : getQuantityButtonTemplate(productType, index, -1, dish.name);
 }
 
 function getDeleteButtonTemplate(productType, index, productName) {

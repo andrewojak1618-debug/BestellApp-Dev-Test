@@ -1,9 +1,9 @@
-﻿let myDishes = [
+let myDishes = [
   {
     name: 'Cyberarm',
     description: 'hochleistungsfähig Bionischer Arm.',
     price: 24900,
-    image: './assets/images/cyberarm.png',
+    image: './assets/images/cyberarm.webp',
     quantity: 1,
     inBasket: false,
   },
@@ -12,21 +12,21 @@
     description:
       'neuronaler Booster für maximale Stabilität und Leistungssteigerung.',
     price: 18500,
-    image: './assets/images/wirbelsäulen-bosster.png',
+    image: './assets/images/wirbelsäulen-bosster.webp',
     quantity: 1,
   },
   {
     name: 'Synth-Lungen',
     description: 'künstliche Lungen für extreme Ausdauer und Lungenschutz.',
     price: 16750,
-    image: './assets/images/synth-lungen.png',
+    image: './assets/images/synth-lungen.webp',
     quantity: 1,
   },
   {
     name: 'Hyperlinks Beine',
     description: 'verstärkte Beine mit integrierter Link-Technologie.',
     price: 22900,
-    image: './assets/images/hyperlinks-beine.png',
+    image: './assets/images/hyperlinks-beine.webp',
     quantity: 1,
   },
 ];
@@ -36,16 +36,16 @@ let enhancementDishes = [
     name: 'Genboost Regenerator',
     description: 'Beschleunigte Wundheilung und Zellregeneration',
     price: 8900,
-    image: './assets/images/genboostClean.png',
-    infoImage: './assets/images/genboostInfo.png',
+    image: './assets/images/genboostClean.webp',
+    infoImage: './assets/images/genboostInfo.webp',
     quantity: 1,
   },
   {
     name: 'Nanoheart Infinity',
     description: 'Entwickelt für maximale Effizenz und Langlebigkeit',
     price: 21500,
-    image: './assets/images/nanoheartClean.png',
-    infoImage: './assets/images/nanoheartInfo.png',
+    image: './assets/images/nanoheartClean.webp',
+    infoImage: './assets/images/nanoheartInfo.webp',
     quantity: 1,
   },
   {
@@ -53,8 +53,8 @@ let enhancementDishes = [
     description:
       'Direkte Gehirn-Erweiterung für verbesserte kognitive Fähigkeiten',
     price: 17900,
-    image: './assets/images/neurolinkClean.png',
-    infoImage: './assets/images/neurolinkInfo.png',
+    image: './assets/images/neurolinkClean.webp',
+    infoImage: './assets/images/neurolinkInfo.webp',
     quantity: 1,
   },
   {
@@ -62,8 +62,8 @@ let enhancementDishes = [
     description:
       'Die Nano Ganzkörperpanzerung, die nächste Generation von molekularer Hautverstärkung',
     price: 140200,
-    image: './assets/images/titanskinClean.png',
-    infoImage: './assets/images/titanskinInfo.png',
+    image: './assets/images/titanskinClean.webp',
+    infoImage: './assets/images/titanskinInfo.webp',
     quantity: 1,
   },
   {
@@ -71,8 +71,8 @@ let enhancementDishes = [
     description:
       'Nervenbeschleuniger für blitzschnelle Reflexe und Reaktionszeiten',
     price: 19600,
-    image: './assets/images/quantumreflexClean.png',
-    infoImage: './assets/images/quantumreflexInfo.png',
+    image: './assets/images/quantumreflexClean.webp',
+    infoImage: './assets/images/quantumreflexInfo.webp',
     quantity: 1,
   },
 ];
@@ -83,7 +83,7 @@ let implantDishes = [
     description:
       'EchoSense erweitert deine akustische Wahrnehmung auf ein neues. Erfasse Geräusche im ultraschallbereich.',
     price: 12400,
-    image: './assets/images/echosenseV3Clean.png',
+    image: './assets/images/echosenseV3Clean.webp',
     quantity: 1,
   },
   {
@@ -91,7 +91,7 @@ let implantDishes = [
     description:
       'FusionCell ist ein miniaturisierter Fusionsreaktor, deine Energiequelle für fortschrittliche Implantate.',
     price: 58700,
-    image: './assets/images/fusioncellreaktorClean.png',
+    image: './assets/images/fusioncellreaktorClean.webp',
     quantity: 1,
   },
   {
@@ -99,7 +99,7 @@ let implantDishes = [
     description:
       'GhostLink Ai ist eine KI-gestützte Schnittstelle, die deine Implantate intelligent steuert und optimiert.',
     price: 33500,
-    image: './assets/images/ghostlinkAiClean.png',
+    image: './assets/images/ghostlinkAiClean.webp',
     quantity: 1,
   },
   {
@@ -107,7 +107,7 @@ let implantDishes = [
     description:
       'NeuroShild ist ein fortschrittliches Sicherheitssystem, das deine Implantate vor Cyberangriffen schützt.',
     price: 86400,
-    image: './assets/images/neuroshieldimplantatClean.png',
+    image: './assets/images/neuroshieldimplantatClean.webp',
     quantity: 1,
   },
 ];
