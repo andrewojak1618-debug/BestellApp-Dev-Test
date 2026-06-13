@@ -75,9 +75,9 @@
 
 .product_quantity_compact {
   border: 0;
-  grid-template-columns: 32px 36px 32px;
+  grid-template-columns: 27px 31px 27px;
   height: 32px;
-  min-width: 100px;
+  min-width: 50px;
 }
 
 .product_quantity_compact button {
