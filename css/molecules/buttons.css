@@ -106,7 +106,7 @@
   .product_quantity {
     grid-column: 1 / -1;
     justify-self: end;
-    min-width: 154px;
+    /* min-width: 154px; */
   }
 }
 /* Delete button: https://uiverse.io/vinodjangid07/clever-bat-72 */
